@@ -87,5 +87,5 @@ for i in range(index,max_index+1):
     
         scraperwiki.sqlite.save(unique_keys=['today','url'],data=package_dict)
         print('****************end---'+package_name+'---end****************')
-        dataset_count = datasetcount + 1
+        dataset_count = dataset_count + 1
 print("everything OK now. Total daasetcount is"+str(dataset_count))
