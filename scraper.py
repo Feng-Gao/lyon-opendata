@@ -24,6 +24,8 @@ max_index = 134
 ua = UserAgent()
 headers = {'User-Agent':ua.random}
 
+dataset_count = 1
+
 for i in range(index,max_index+1):
     url = base_url + str(i)
     print(url)
@@ -85,4 +87,5 @@ for i in range(index,max_index+1):
     
         scraperwiki.sqlite.save(unique_keys=['today','url'],data=package_dict)
         print('****************end---'+package_name+'---end****************')
-
+        dataset_count = datasetcount + 1
+print("everything OK now. Total daasetcount is"+str(dataset_count))
