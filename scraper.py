@@ -70,7 +70,9 @@ for i in range(index,max_index+1):
                 +','+package_format+'\n'
         print(row)
         package_dict = {
+                    
                     'today':datetime.date.today().strftime("%m/%d/%Y"),
+                    'id': dataset_count,
                     'url':package_url,
                 
                     'name':package_name,
@@ -85,7 +87,7 @@ for i in range(index,max_index+1):
                     
         }
     
-        scraperwiki.sqlite.save(unique_keys=['today','url'],data=package_dict)
+        scraperwiki.sqlite.save(unique_keys=['today','id'],data=package_dict)
         print('****************end---'+package_name+'---end****************')
         dataset_count = dataset_count + 1
 print("everything OK now. Total daasetcount is"+str(dataset_count))
