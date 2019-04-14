@@ -38,6 +38,8 @@ for i in range(index,max_index+1):
         package_url = p.find(attrs={'class':'result_item_title'}).a['href']
         print(package_url)
         package_org = '"'+p.find(attrs={'class':'result_item_fournisseur'}).span.text+'"'
+        
+        package_view = p.find(attrs={'class':'result_item_consultation'}).p.span.text.strip().split(' ')[0]
 
         result = requests.get(package_url,headers=headers)
         soup = BeautifulSoup(result.content,features='lxml')
@@ -77,6 +79,7 @@ for i in range(index,max_index+1):
                     'format':package_format,
                     'created':package_created,
                     'frequency':package_frequency,
+                    'view':package_view,
                     
         }
     
