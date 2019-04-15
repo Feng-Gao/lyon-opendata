@@ -25,7 +25,7 @@ ua = UserAgent()
 headers = {'User-Agent':ua.random}
 
 dataset_count = 1
-
+today_date = datetime.date.today().strftime("%m/%d/%Y")
 for i in range(index,max_index+1):
     url = base_url + str(i)
     print(url)
@@ -71,7 +71,7 @@ for i in range(index,max_index+1):
         print(row)
         package_dict = {
                     
-                    'today':datetime.date.today().strftime("%m/%d/%Y"),
+                    'today':today_date,
                     'id': dataset_count,
                     'url':package_url,
                 
@@ -90,4 +90,4 @@ for i in range(index,max_index+1):
         scraperwiki.sqlite.save(unique_keys=['today','id'],data=package_dict)
         print('****************end---'+package_name+'---end****************')
         dataset_count = dataset_count + 1
-print("everything OK now. Total daasetcount is"+str(dataset_count))
+print("everything OK now. Total dataset_count is"+str(dataset_count-1))
